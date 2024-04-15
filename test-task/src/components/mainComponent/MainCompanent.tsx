@@ -10,7 +10,6 @@ const MainComponent = () => {
 
   const icons = Object.keys(fas);
   const [icon, setIcon] = useState(icons[0]);
-  const [disabled, setDisabled] = useState(false);
   
   let timerId: NodeJS.Timeout | null = null;
 
@@ -23,8 +22,6 @@ const MainComponent = () => {
   
     timerId = setTimeout(() => {
       setIcon(randomIcon);
-      setDisabled(true);
-      setDisabled(false);
     }, 3000);
   }
   
@@ -32,7 +29,7 @@ const MainComponent = () => {
     <div className={styleMainComponent.wrap}>
       <span className={styleMainComponent.icon}><FontAwesomeIcon icon={fas[icon]} /></span>
       <span className={styleMainComponent.iconName}>{icon}</span>
-      <button className={styleMainComponent.iconChangeButton} disabled={disabled} onClick={()=>{handleIconChange()}}>next Icon</button>
+      <button className={styleMainComponent.iconChangeButton} onClick={()=>{handleIconChange()}}>next Icon</button>
     </div>
   );
 }

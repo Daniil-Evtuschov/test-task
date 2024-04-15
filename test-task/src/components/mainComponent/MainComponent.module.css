@@ -1,0 +1,41 @@
+.wrap{
+    display: flex;
+    flex-direction: column;
+    justify-content: space-evenly;
+    border: 2px solid rgb(115, 62, 214);
+    border-radius: 15px;
+    min-width: 450px;
+    min-height: 500px;
+    padding: 10px;
+}
+
+.icon{
+    font-size: 146px;
+    color: #ffff;
+    cursor: pointer;
+    padding: 15px;
+}
+
+.iconName{
+    font-size: 46px;
+    color: #ffff;
+}
+
+.iconChangeButton{
+    border: none;
+    cursor: pointer;
+    width: 40%;
+    margin: 0 auto 0;
+    padding: 15px;
+    background-color: rgb(73, 59, 199);
+    transition: 0.5s;
+    color: #ffff;
+    border-radius: 5px;
+}
+
+.iconChangeButton:hover{
+    background-color:  rgb(129, 116, 252);
+    transition: 0.5s;
+    color: rgb(73, 59, 199);
+    box-shadow:  1px 1px 20px 10px rgba(0, 0, 0, 0.466);
+}

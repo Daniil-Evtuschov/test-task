@@ -1,29 +1,26 @@
-import { library } from '@fortawesome/fontawesome-svg-core';
 import { fas } from '@fortawesome/free-solid-svg-icons';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import { useState } from 'react';
+import { useCallback, useRef, useState } from 'react';
 import styleMainComponent from "./MainComponent.module.css";
+import { memo } from "react";
 
-library.add(fas)
-
-const MainComponent = () => {
-
-  const icons = Object.keys(fas);
-  const [icon, setIcon] = useState(icons[0]);
+const MainComponent = memo((props: { icons: string[] }) => {
   
-  let timerId: NodeJS.Timeout | null = null;
-
-  function handleIconChange() {
-    const randomIcon = icons[Math.floor(Math.random() * icons.length)];
+  const [icon, setIcon] = useState(props.icons[Math.floor(Math.random() * props.icons.length)]);
   
-    if (timerId) {
-      clearTimeout(timerId);
+  const timerId = useRef<NodeJS.Timeout | null>(null);
+
+  const handleIconChange = useCallback(() => {
+    const randomIcon = props.icons[Math.floor(Math.random() * props.icons.length)];
+  
+    if (timerId.current) {
+      clearTimeout(timerId.current);
     }
-  
-    timerId = setTimeout(() => {
+    
+    timerId.current = setTimeout(() => {
       setIcon(randomIcon);
     }, 3000);
-  }
+  }, [props.icons]);
   
   return (
     <div className={styleMainComponent.wrap}>
@@ -32,7 +29,7 @@ const MainComponent = () => {
       <button className={styleMainComponent.iconChangeButton} onClick={()=>{handleIconChange()}}>next Icon</button>
     </div>
   );
-}
+})
 
 export default MainComponent;
 

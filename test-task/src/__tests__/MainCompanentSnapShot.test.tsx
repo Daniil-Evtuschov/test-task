@@ -1,8 +1,10 @@
-import React from 'react';
-import renderer from 'react-test-renderer';
+// В вашем тестовом файле
+import { render, screen } from '@testing-library/react';
+import { icons } from '../App';
 import MainComponent from '../components/mainComponent/MainCompanent';
 
-test('MainComponent renders correctly', () => {
-  const component = renderer.create(<MainComponent icons={['icon1', 'icon2', 'icon3']} />).toJSON();
-  expect(component).toMatchSnapshot();
+test('MainComponent snapshot', () => {
+  render(<MainComponent icons={icons} />);
+  const mainComponent = screen.getByTestId('main-component');
+  expect(mainComponent).toMatchSnapshot();
 });

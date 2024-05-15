@@ -23,7 +23,7 @@ const MainComponent = memo((props: { icons: string[] }) => {
   }, [props.icons]);
   
   return (
-    <div className={styleMainComponent.wrap}>
+    <div data-testid="main-component" className={styleMainComponent.wrap}>
       <span className={styleMainComponent.icon}><FontAwesomeIcon icon={fas[icon]} /></span>
       <span className={styleMainComponent.iconName} data-testid='icon-name' >{icon}</span>
       <button className={styleMainComponent.iconChangeButton} onClick={()=>{handleIconChange()}}>next Icon</button>

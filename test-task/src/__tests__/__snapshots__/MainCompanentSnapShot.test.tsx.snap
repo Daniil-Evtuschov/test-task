@@ -1,0 +1,23 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`MainComponent renders correctly 1`] = `
+<div
+  className="wrap"
+>
+  <span
+    className="icon"
+  />
+  <span
+    className="iconName"
+    data-testid="icon-name"
+  >
+    icon2
+  </span>
+  <button
+    className="iconChangeButton"
+    onClick={[Function]}
+  >
+    next Icon
+  </button>
+</div>
+`;

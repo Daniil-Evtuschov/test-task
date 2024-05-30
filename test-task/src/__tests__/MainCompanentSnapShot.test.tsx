@@ -1,4 +1,3 @@
-// В вашем тестовом файле
 import { render, screen } from '@testing-library/react';
 import { icons } from '../App';
 import MainComponent from '../components/mainComponent/MainCompanent';
